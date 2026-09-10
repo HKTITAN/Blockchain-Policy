@@ -1,1 +1,1 @@
-LOAD_FROM_/workspace/harshit-khemani/generate_case_study.py
+LOAD_FROM_/tmp/harshit_upload_payload.json
