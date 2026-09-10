@@ -55,7 +55,7 @@ STUDENT = {
 }
 
 TOPIC = "Blockchain and the Cost of Regulatory Compliance"
-FOOTER = f"Blockchain Policy \u00b7 {STUDENT['name']} \u00b7 {STUDENT['roll']}"
+FOOTER = f"Blockchain Policy · {STUDENT['name']} · {STUDENT['roll']}"
 
 NAVY = colors.HexColor("#14375E")
 ACCENT = colors.HexColor("#2E75B6")
@@ -229,7 +229,7 @@ def bullets(items: list[str]) -> ListFlowable:
     return ListFlowable(
         [ListItem(Paragraph(item, S["body"]), leftIndent=12) for item in items],
         bulletType="bullet",
-        start="\u2022",
+        start="•",
         leftIndent=18,
         bulletFontName="Times-Roman",
         bulletFontSize=11,
@@ -346,7 +346,7 @@ def contents_page() -> list:
     items = [
         "Abstract",
         "1. Introduction",
-        "2. Background: What \u201cCompliance\u201d Means on a Public Ledger",
+        "2. Background: What “Compliance” Means on a Public Ledger",
         "3. Anatomy of Compliance Cost",
         "4. Real-World Cases and Jurisdictions",
         "5. Who Pays, Who Exits, and What Distorts",
@@ -382,12 +382,12 @@ def body() -> list:
             "sanctions screening, and consumer-disclosure duties are not optional "
             "overhead for any business that touches the rupee, the dollar, or the "
             "euro. They are the price of remaining in the formal financial system. "
-            "This case study asks a narrower question than \u201cshould crypto be "
-            "regulated?\u201d It asks what compliance <i>costs</i>, who pays those costs, "
+            "This case study asks a narrower question than “should crypto be "
+            "regulated?” It asks what compliance <i>costs</i>, who pays those costs, "
             "and how the structure of the bill changes market structure. Evidence "
-            "from Coinbase\u2019s public filings, Binance\u2019s settlements, the European "
-            "Union\u2019s Markets in Crypto-Assets regime, United States enforcement, "
-            "and India\u2019s virtual-digital-asset tax-and-TDS design shows a consistent "
+            "from Coinbase’s public filings, Binance’s settlements, the European "
+            "Union’s Markets in Crypto-Assets regime, United States enforcement, "
+            "and India’s virtual-digital-asset tax-and-TDS design shows a consistent "
             "pattern. Fixed compliance costs favour incumbents. Ambiguous rules "
             "create a risk premium that is larger than the cash cost of a licence. "
             "Rules written for banks fit custodial exchanges better than "
@@ -432,7 +432,7 @@ def body() -> list:
             "between a technology that was meant to be jurisdiction-agnostic and a "
             "regulatory project that is irreducibly territorial. Bitcoin does not "
             "know whether a spender is in Gurugram or Lisbon. MiCA, the U.S. "
-            "Bank Secrecy Act, and India\u2019s Income-tax Act do. Anyone who wants to "
+            "Bank Secrecy Act, and India’s Income-tax Act do. Anyone who wants to "
             "connect a public ledger to a bank account must therefore buy a "
             "translation layer: licences, identity vendors, transaction-monitoring "
             "engines, and people who can explain a suspicious-transaction report to "
@@ -443,17 +443,17 @@ def body() -> list:
     )
     st.append(
         para(
-            "The undergraduate temptation is to pick a side — \u201cregulation is "
-            "innovation-killing\u201d versus \u201canything less than bank rules is a loophole.\u201d "
+            "The undergraduate temptation is to pick a side — “regulation is "
+            "innovation-killing” versus “anything less than bank rules is a loophole.” "
             "Both slogans hide the engineering-and-economics problem. Some rules "
             "are high-fixed-cost and low-variable-cost (building a Travel Rule "
             "messaging stack). Some are high-variable-cost (manual review of every "
             "withdrawal above a threshold). Some are not cash costs at all but "
             "option-value costs: a firm delays a product because it cannot get a "
-            "no-action letter. India\u2019s present mix — heavy taxation without a "
+            "no-action letter. India’s present mix — heavy taxation without a "
             "comprehensive licensing statute — is a distinctive case of the third "
             "kind. Platforms pay 1 percent TDS and customers face a 30 percent tax "
-            "on gains, while the Reserve Bank\u2019s discomfort with bank\u2013crypto rails "
+            "on gains, while the Reserve Bank’s discomfort with bank–crypto rails "
             "and the absence of a dedicated VASP law leave lawful operators unsure "
             "which additional shoe will drop."
         )
@@ -464,8 +464,8 @@ def body() -> list:
             "make some classic tools awkward. Section 3 decomposes cost into "
             "licence, identity, monitoring, tax, cross-border, and ambiguity. "
             "Section 4 reads real cases: a listed U.S. exchange, a global platform "
-            "that settled with the Department of Justice, Europe\u2019s attempt to "
-            "harmonise the bill, and India\u2019s tax-first path. Section 5 asks who "
+            "that settled with the Department of Justice, Europe’s attempt to "
+            "harmonise the bill, and India’s tax-first path. Section 5 asks who "
             "pays and how costs reshape competition. Section 6 discusses policy "
             "design: activity-based rules, mutual recognition, and the special "
             "problem of non-custodial software. Section 7 recommends a compliance "
@@ -473,7 +473,7 @@ def body() -> list:
         )
     )
 
-    st.append(heading("2. Background: What \u201cCompliance\u201d Means on a Public Ledger"))
+    st.append(heading("2. Background: What “Compliance” Means on a Public Ledger"))
     st.append(sub("2.1 From bank secrecy to VASPs"))
     st.append(
         para(
@@ -496,7 +496,7 @@ def body() -> list:
             "Compliance in this paper therefore means the bundle of legal duties "
             "that a business accepts in exchange for access to the formal payment "
             "system and to a mass retail market. It is not the same as on-chain "
-            "\u201ctransparency.\u201d Anyone can see a Bitcoin address. Almost no one can "
+            "“transparency.” Anyone can see a Bitcoin address. Almost no one can "
             "see the person. The expensive part is connecting those two facts "
             "lawfully, storing the connection for years, and being ready to produce "
             "it to FIU-IND or a foreign counterpart without leaking it to everyone "
@@ -521,7 +521,7 @@ def body() -> list:
             "chargeback window. Third, <b>composability</b>: a user can route "
             "value through a decentralised exchange, a mixer, a bridge, and a "
             "centralised off-ramp in one afternoon. Each hop is a monitoring "
-            "problem. Vendors sell \u201cblockchain analytics\u201d precisely because the "
+            "problem. Vendors sell “blockchain analytics” precisely because the "
             "native data model is addresses, not customers."
         )
     )
@@ -543,7 +543,7 @@ def body() -> list:
             "financial institutions: they hold keys, they have bank accounts, they "
             "can be licensed, examined, and fined. Their compliance bill is high "
             "but conceptually familiar. <b>Non-custodial software</b> — a wallet "
-            "that never holds the user\u2019s key, a smart-contract protocol with no "
+            "that never holds the user’s key, a smart-contract protocol with no "
             "company at the centre — does not fit the VASP form without legal "
             "creativity. Some jurisdictions treat a front-end operator or a DAO "
             "foundation as the obligated party. Some do not. The uncertainty is "
@@ -626,7 +626,7 @@ def body() -> list:
             "changed. MiCA at least publishes a single rulebook for the Union, "
             "which is why European counsel can quote a price. A firm that wants "
             "to serve India, the UAE, Singapore, and the United States is buying "
-            "four interpretations of \u201cthe same\u201d activity. Each interpretation "
+            "four interpretations of “the same” activity. Each interpretation "
             "needs a local responsible officer. Those officers do not scale like "
             "cloud compute. They scale like humans."
         )
@@ -634,7 +634,7 @@ def body() -> list:
     st.append(sub("3.2 Identity: the per-user tax"))
     st.append(
         para(
-            "KYC looks cheap on a slide — \u201ca few rupees per PAN-Aadhaar match.\u201d "
+            "KYC looks cheap on a slide — “a few rupees per PAN-Aadhaar match.” "
             "The fully loaded cost includes failed liveness checks, address "
             "documents that do not match, politically exposed person review, "
             "and the support tickets generated by honest people who dyed their "
@@ -643,7 +643,7 @@ def body() -> list:
             "filtered or fatigued. A serious cost model therefore includes "
             "<i>lost gross merchandise</i>, not only vendor invoices. This is "
             "why platforms fight over thresholds and over whether a low-value "
-            "account can be opened with lighter identification. FATF\u2019s "
+            "account can be opened with lighter identification. FATF’s "
             "risk-based approach allows that conversation. Political pressure "
             "after a scandal usually ends it."
         )
@@ -656,7 +656,7 @@ def body() -> list:
             "can score an address for mixer exposure before the withdrawal is "
             "signed. Harder: the customer can empty the account to an unhosted "
             "wallet the platform does not control, and the next hop is invisible "
-            "to the platform\u2019s ledger even though it is visible on-chain. The "
+            "to the platform’s ledger even though it is visible on-chain. The "
             "Travel Rule then requires VASPs to transmit identity data they "
             "never needed for settlement. Competing messaging protocols "
             "(TRISA, OpenVASP, and vendor-specific networks) recreate, badly, "
@@ -668,7 +668,7 @@ def body() -> list:
     st.append(sub("3.4 Tax administration as compliance"))
     st.append(
         para(
-            "India\u2019s Finance Act, 2022 inserted a special regime for virtual "
+            "India’s Finance Act, 2022 inserted a special regime for virtual "
             "digital assets: a 30 percent tax on transfers under section 115BBH, "
             "without set-off of losses against other income in the ordinary way, "
             "and a 1 percent TDS under section 194S on many transfers above a "
@@ -709,12 +709,12 @@ def body() -> list:
             "must describe risk and spending in filings. Year after year the "
             "10-K language is blunt: the firm operates in a shifting legal "
             "environment; it spends heavily on compliance, legal, and "
-            "policy; a change in a single state\u2019s money-transmitter reading "
+            "policy; a change in a single state’s money-transmitter reading "
             "or a federal classification of an asset can strand a product. "
             "Headcount in legal, compliance, and institutional coverage is "
             "not a rounding error next to engineering. That is the point. "
             "Once a platform decides to be a full-stack, bank-adjacent "
-            "business, its cost structure starts to resemble a bank\u2019s. "
+            "business, its cost structure starts to resemble a bank’s. "
             "Critics call this capture. Supporters call it growing up. For "
             "this paper it is simply evidence that compliance, at scale, is "
             "an operating system — not a weekend policy PDF."
@@ -726,9 +726,9 @@ def body() -> list:
             "listed firm can amortise a global licence map and a 24-hour "
             "financial-crime operations centre. A ten-person Indian startup "
             "that wants to list a new token and offer INR pairs cannot. If "
-            "the policy goal is \u201conly serious firms should touch retail "
-            "money,\u201d high fixed costs are a feature. If the goal is \u201clet a "
-            "domestic industry form under supervision,\u201d the same costs are "
+            "the policy goal is “only serious firms should touch retail "
+            "money,” high fixed costs are a feature. If the goal is “let a "
+            "domestic industry form under supervision,” the same costs are "
             "a bug. India has not clearly chosen which goal it wants, which "
             "is why the next subsection matters."
         )
@@ -737,18 +737,18 @@ def body() -> list:
     st.append(sub("4.2 Binance and the price of being everywhere without a map"))
     st.append(
         para(
-            "Binance\u2019s 2023 resolution with the U.S. Department of Justice "
+            "Binance’s 2023 resolution with the U.S. Department of Justice "
             "and related agencies — a criminal plea, a multi-billion-dollar "
             "financial penalty, and the departure of its founder from the "
             "CEO role — is the most expensive compliance case study in the "
-            "sector. The government\u2019s theory was not that the blockchain "
+            "sector. The government’s theory was not that the blockchain "
             "was illegal. It was that a business which served U.S. customers "
             "and dollar infrastructure, while treating compliance as a "
             "growth constraint to be gamed, had violated BSA-type duties "
             "and sanctions expectations. One may debate charging theories. "
             "One cannot debate the lesson boards took: extra-territorial "
-            "enforcement can bankrupt a strategy of \u201claunch first, pick a "
-            "headquarters later.\u201d"
+            "enforcement can bankrupt a strategy of “launch first, pick a "
+            "headquarters later.”"
         )
     )
     st.append(
@@ -782,7 +782,7 @@ def body() -> list:
             "regimes are mixed. Some firms left the Union or narrowed "
             "products. Some treated a MiCA licence as a quality signal and "
             "a ticket to bank partnerships. Compliance cost became a "
-            "competitive language — \u201cwe are MiCA-ready\u201d — which is exactly "
+            "competitive language — “we are MiCA-ready” — which is exactly "
             "what a high-fixed-cost regime produces."
         )
     )
@@ -800,11 +800,11 @@ def body() -> list:
     st.append(sub("4.4 India: tax first, licence later"))
     st.append(
         para(
-            "India\u2019s distinctive path is to tax virtual digital assets "
+            "India’s distinctive path is to tax virtual digital assets "
             "sharply while leaving a comprehensive market-conduct and "
             "custody statute unfinished. The Reserve Bank has warned banks "
             "and the public about crypto risk for years and has explored a "
-            "central bank digital currency as a public alternative. SEBI\u2019s "
+            "central bank digital currency as a public alternative. SEBI’s "
             "perimeter covers securities; many tokens are not clearly "
             "securities. Home-ministry and CERT-In instruments address "
             "fraud and incident reporting. FIU-IND has registered some "
@@ -838,11 +838,11 @@ def body() -> list:
             "cost: developers, front-end operators, and even some users of "
             "privacy-preserving smart contracts faced criminal and civil "
             "risk for code that, once deployed, no single firm fully "
-            "controlled. Whatever one\u2019s view of mixers, the compliance "
+            "controlled. Whatever one’s view of mixers, the compliance "
             "lesson is that when intermediaries are the only easy target, "
             "enforcement will stretch the definition of intermediary. "
-            "Legal teams now budget for \u201care we a publisher of software or "
-            "a transfer service?\u201d The hours spent on that question are "
+            "Legal teams now budget for “are we a publisher of software or "
+            "a transfer service?” The hours spent on that question are "
             "compliance costs. They do not show up as KYC vendor invoices. "
             "They show up as products that are never shipped in the United "
             "States or India."
@@ -914,13 +914,13 @@ def body() -> list:
     st.append(
         para(
             "Fixed legal costs are a classic source of concentration. After "
-            "MiCA, after U.S. enforcement waves, and after India\u2019s tax "
+            "MiCA, after U.S. enforcement waves, and after India’s tax "
             "shock, the surviving formal firms are larger, more "
             "bank-like, and more able to hire Delhi, Brussels, and "
             "Washington counsel. That may be acceptable. Payment systems "
             "are also concentrated. The intellectual error is to describe "
-            "the resulting market as \u201cwhat users chose\u201d rather than \u201cwhat "
-            "the cost curve plus the statute produced.\u201d If policymakers "
+            "the resulting market as “what users chose” rather than “what "
+            "the cost curve plus the statute produced.” If policymakers "
             "later complain that a handful of exchanges have too much "
             "systemic importance, they should remember who paid for the "
             "moat."
@@ -932,7 +932,7 @@ def body() -> list:
             "Some of the technically interesting work in the last five "
             "years — account abstraction, intent-based trading, "
             "cross-chain settlement, privacy-preserving identity — sits "
-            "in the gap between \u201csoftware library\u201d and \u201ctransfer service.\u201d "
+            "in the gap between “software library” and “transfer service.” "
             "If every new primitive is presumed a VASP until proven "
             "otherwise, research-to-product pipelines inside India will "
             "thin out. Talent will ship from Singapore or Lisbon under a "
@@ -941,7 +941,7 @@ def body() -> list:
             "instrument, whether or not Parliament intended that."
         )
     )
-    st.append(sub("5.4 A note on \u201ccode is free\u201d"))
+    st.append(sub("5.4 A note on “code is free”"))
     st.append(
         para(
             "Open-source protocol work is often said to have zero "
@@ -950,7 +950,7 @@ def body() -> list:
             "company takes a donation, pays a developer, or hosts a "
             "website that helps users enter transactions. The moment "
             "fiat or a legal entity appears, the cost function appears "
-            "with it. Students who plan to \u201cjust launch a contract\u201d "
+            "with it. Students who plan to “just launch a contract” "
             "should treat that sentence as the beginning of the "
             "compliance analysis, not the end."
         )
@@ -961,14 +961,14 @@ def body() -> list:
     st.append(
         para(
             "The cheapest compliance system to administer is one that "
-            "asks what a person is <i>doing</i>: holding someone else\u2019s "
+            "asks what a person is <i>doing</i>: holding someone else’s "
             "keys, exchanging INR for a token, issuing a redeemable "
             "stablecoin, giving personalised investment advice. Those "
             "activities already have cousins in Indian law (custodian, "
             "payment intermediary, prepaid instrument, investment "
             "adviser). Copying the cousin is not always right — a "
             "stablecoin is not exactly a PPI — but it is more "
-            "tractable than regulating \u201cblockchain\u201d or \u201cWeb3\u201d as a "
+            "tractable than regulating “blockchain” or “Web3” as a "
             "mood. Activity-based rules also let non-custodial "
             "software remain software until the operator crosses a "
             "factual line (control of keys, pooling of customer value, "
@@ -978,11 +978,11 @@ def body() -> list:
     st.append(sub("6.2 Predictability is a cost-reduction tool"))
     st.append(
         para(
-            "MiCA\u2019s deepest exportable idea is not any particular "
+            "MiCA’s deepest exportable idea is not any particular "
             "article. It is the idea that a firm should be able to "
             "buy a calendar. Sandboxes help only if graduation criteria "
             "are real. No-action processes help only if they are "
-            "published. India\u2019s current mix — tax clarity plus "
+            "published. India’s current mix — tax clarity plus "
             "licensing fog — maximises revenue administration and "
             "minimises business-model administration. A dedicated VASP "
             "chapter, even a strict one, would likely <i>lower</i> "
@@ -994,14 +994,14 @@ def body() -> list:
     st.append(sub("6.3 Proportionality and thresholds"))
     st.append(
         para(
-            "FATF\u2019s risk-based language is easy to quote and hard to "
+            "FATF’s risk-based language is easy to quote and hard to "
             "implement. A platform with twenty users and a platform "
             "with twenty million should not buy the same monitoring "
             "stack on day one. Tiered duties — registration, then "
             "licence, then enhanced obligations above thresholds of "
             "volume or custody — keep the on-ramp to legality open. "
             "The political failure mode is that after the first "
-            "scandal, tiers collapse to \u201ceveryone does everything.\u201d "
+            "scandal, tiers collapse to “everyone does everything.” "
             "The economic failure mode is that tiers become loopholes. "
             "The design job is to accept both risks and still write "
             "numbers: a custody threshold, a transfer threshold for "
@@ -1029,8 +1029,8 @@ def body() -> list:
     st.append(sub("6.5 Do not make analytics a secret law"))
     st.append(
         para(
-            "When platforms outsource \u201crisk scores\u201d to a handful of "
-            "analytics firms, those firms\u2019 heuristics become de facto "
+            "When platforms outsource “risk scores” to a handful of "
+            "analytics firms, those firms’ heuristics become de facto "
             "regulation. An address clustered near a mixer may become "
             "unbankable without a hearing. Policy should require "
             "explainability to the customer and a redress path, the "
@@ -1093,14 +1093,14 @@ def body() -> list:
             [
                 "Budget compliance as a product surface: cooling-off, "
                 "withdrawal allow-lists, and tax lots are user experience, "
-                "not only Legal\u2019s problem.",
+                "not only Legal’s problem.",
                 "Prefer reusable KYC (account-aggregator or bank-attested "
                 "identity) over collecting a fresh document pile for every "
                 "feature launch.",
                 "Measure leakage: if TDS and friction push volume to "
                 "unregulated peers, report that number to the board the "
                 "way you report conversion. It is a policy risk metric.",
-                "Do not advertise \u201cdecentralisation\u201d as an AML exemption "
+                "Do not advertise “decentralisation” as an AML exemption "
                 "when a company still hosts the front-end, the sequencer, "
                 "or the upgrade key.",
             ]
@@ -1110,8 +1110,8 @@ def body() -> list:
     st.append(
         bullets(
             [
-                "When proposing a dApp in a lab, add a one-page \u201cwho is "
-                "the VASP?\u201d memo. If the answer is \u201cnobody,\u201d explain who "
+                "When proposing a dApp in a lab, add a one-page “who is "
+                "the VASP?” memo. If the answer is “nobody,” explain who "
                 "pays the server bill and who can pause the contract.",
                 "Read one primary instrument end-to-end (MiCA Title, FATF "
                 "Recommendation 15 guidance, or the Finance Act VDA "
@@ -1127,7 +1127,7 @@ def body() -> list:
         para(
             "Do not copy a full banking capital stack onto a non-custodial "
             "wallet. Do not copy a ban and then wonder why FIU reporting "
-            "quality collapsed. Do not copy another country\u2019s list of "
+            "quality collapsed. Do not copy another country’s list of "
             "licensable tokens without copying its passporting and its "
             "appeals process — that is how you import costs without "
             "importing the efficiency that was supposed to justify them."
@@ -1156,9 +1156,9 @@ def body() -> list:
             "treat every instrument as free. High fixed costs concentrate "
             "the market. Ambiguous costs freeze it or push it offshore. "
             "Tax instruments that are asked to do the work of a licence "
-            "collect some revenue and leak a lot of activity. Europe\u2019s "
-            "bet on a known bill, the United States\u2019 bet on enforcement, "
-            "and India\u2019s bet on taxation plus caution are three different "
+            "collect some revenue and leak a lot of activity. Europe’s "
+            "bet on a known bill, the United States’ bet on enforcement, "
+            "and India’s bet on taxation plus caution are three different "
             "ways to spend the same political capital. Only the first "
             "makes the spend knowable to a compliance officer who has to "
             "ship software on a Tuesday."
@@ -1172,10 +1172,10 @@ def body() -> list:
             "buying a property you can name. If a proposed Indian rule "
             "cannot say whether it is buying AML visibility, consumer "
             "redress, or monetary-sovereignty theatre, it will still "
-            "impose a bill. Someone will pay it. This case study\u2019s only "
+            "impose a bill. Someone will pay it. This case study’s only "
             "insistence is that the someone, and the rupee amount, be "
             "part of the argument — not an afterthought once the adjective "
-            "\u201ccrypto\u201d has done all the work."
+            "“crypto” has done all the work."
         )
     )
 
@@ -1193,7 +1193,7 @@ def body() -> list:
         "Reserve Bank of India. Public statements and circulars cautioning regulated entities on cryptocurrency-related exposures; e-rupee / CBDC materials (contrast case).",
         "U.S. Department of Justice. (2023). Resolutions concerning Binance Holdings Limited and related persons (BSA / information and plea materials).",
         "U.S. Department of the Treasury / OFAC. (2022–2024). Actions and subsequent litigation concerning Tornado Cash.",
-        "Zetzsche, D. A., Buckley, R. P., Arner, D. W., &amp; F\u00f6hr, L. (2018–2021). The DLT and FinTech compliance literature on \u201cembedded supervision\u201d and the cost of applying bank-like duties to new intermediaries.",
+        "Zetzsche, D. A., Buckley, R. P., Arner, D. W., &amp; Föhr, L. (2018–2021). The DLT and FinTech compliance literature on “embedded supervision” and the cost of applying bank-like duties to new intermediaries.",
         "Auer, R. (2022). Embedded supervision: How to build regulation into blockchain finance. BIS Working Papers (discussion of supervisory data access versus traditional reporting).",
         "OECD. (2022–2023). Crypto-asset reporting framework (CARF) materials — the next major cross-border reporting cost for platforms.",
         "Sumsub, Chainalysis, TRM Labs, Elliptic. Public product documentation and industry surveys on KYC and blockchain-analytics pricing (vendor layer described in Section 2).",
