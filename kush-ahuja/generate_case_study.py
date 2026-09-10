@@ -55,7 +55,7 @@ STUDENT = {
 }
 
 TOPIC = "Blockchain and the Cost of Regulatory Compliance"
-FOOTER = f"Blockchain Policy · {STUDENT['name']} · {STUDENT['roll']}"
+FOOTER = f"Blockchain Policy \u00b7 {STUDENT['name']} \u00b7 {STUDENT['roll']}"
 
 NAVY = colors.HexColor("#14375E")
 ACCENT = colors.HexColor("#2E75B6")
@@ -173,3 +173,90 @@ S = {
         leftIndent=0.3 * cm,
     ),
 }
+
+
+class Report(BaseDocTemplate):
+    def __init__(self, buffer: io.BytesIO, footer: str, *, cover_first: bool = False, **kw):
+        self.footer_text = footer
+        super().__init__(
+            buffer,
+            pagesize=A4,
+            leftMargin=MARGIN,
+            rightMargin=MARGIN,
+            topMargin=MARGIN,
+            bottomMargin=MARGIN + 0.4 * cm,
+            title=TOPIC,
+            author=STUDENT["name"],
+            **kw,
+        )
+        frame = Frame(
+            MARGIN,
+            MARGIN + 0.4 * cm,
+            CONTENT_W,
+            PAGE_H - 2 * MARGIN - 0.4 * cm,
+            id="main",
+        )
+        content = PageTemplate(id="content", frames=[frame], onPage=self._footer)
+        if cover_first:
+            self.addPageTemplates([PageTemplate(id="plain", frames=[frame]), content])
+        else:
+            self.addPageTemplates([content])
+
+    def _footer(self, canv, doc):
+        canv.saveState()
+        canv.setStrokeColor(RULE)
+        canv.line(MARGIN, MARGIN + 0.15 * cm, PAGE_W - MARGIN, MARGIN + 0.15 * cm)
+        canv.setFont("Times-Roman", 8)
+        canv.setFillColor(GREY)
+        canv.drawString(MARGIN, MARGIN - 0.15 * cm, self.footer_text)
+        canv.drawRightString(PAGE_W - MARGIN, MARGIN - 0.15 * cm, str(canv.getPageNumber()))
+        canv.restoreState()
+
+
+def para(text: str) -> Paragraph:
+    return Paragraph(text, S["body"])
+
+
+def heading(text: str) -> Paragraph:
+    return Paragraph(text, S["h1"])
+
+
+def sub(text: str) -> Paragraph:
+    return Paragraph(text, S["h2"])
+
+
+def bullets(items: list[str]) -> ListFlowable:
+    return ListFlowable(
+        [ListItem(Paragraph(item, S["body"]), leftIndent=12) for item in items],
+        bulletType="bullet",
+        start="\u2022",
+        leftIndent=18,
+        bulletFontName="Times-Roman",
+        bulletFontSize=11,
+        spaceBefore=2,
+        spaceAfter=6,
+    )
+
+
+def navy_table(rows: list[list[str]], col_widths=None, pad: int = 5):
+    data = []
+    for r, row in enumerate(rows):
+        style = S["cellb"] if r == 0 else S["cell"]
+        data.append([Paragraph(str(c), style) for c in row])
+    t = Table(data, colWidths=col_widths, hAlign="CENTER", repeatRows=1)
+    t.setStyle(
+        TableStyle(
+            [
+                ("BACKGROUND", (0, 0), (-1, 0), NAVY),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                ("TOPPADDING", (0, 0), (-1, -1), 4),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
+                ("LEFTPADDING", (0, 0), (-1, -1), pad),
+                ("RIGHTPADDING", (0, 0), (-1, -1), pad),
+                ("LINEBELOW", (0, 0), (-1, -2), 0.4, RULE),
+                ("LINEBELOW", (0, -1), (-1, -1), 0.8, NAVY),
+                ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, LIGHT]),
+            ]
+        )
+    )
+    return t
