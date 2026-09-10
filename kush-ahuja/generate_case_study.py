@@ -260,3 +260,106 @@ def navy_table(rows: list[list[str]], col_widths=None, pad: int = 5):
         )
     )
     return t
+
+
+def practical_cover() -> list:
+    st: list = []
+    st.append(Spacer(1, 0.35 * cm))
+    st.append(Paragraph("Practical File / Case Study", S["center"]))
+    st.append(Paragraph("On", S["center"]))
+    st.append(Spacer(1, 0.2 * cm))
+    st.append(
+        Paragraph(
+            '<font size="16" color="#14375E"><b>BLOCKCHAIN POLICY</b></font>',
+            S["center"],
+        )
+    )
+    st.append(Spacer(1, 0.35 * cm))
+    st.append(
+        Paragraph(
+            f'<font size="12" color="#2E75B6"><b>{TOPIC}</b></font>',
+            S["center"],
+        )
+    )
+    st.append(Spacer(1, 0.7 * cm))
+    st.append(
+        Paragraph(
+            "Submitted in partial fulfilment of the requirements for<br/>"
+            "the award of the degree",
+            S["center"],
+        )
+    )
+    st.append(Spacer(1, 0.35 * cm))
+    st.append(Paragraph("<b>Bachelor of Technology</b>", S["center"]))
+    st.append(Paragraph("in", S["center"]))
+    st.append(
+        Paragraph(
+            "<b>Department of Computer Science and Engineering</b>",
+            S["center"],
+        )
+    )
+    st.append(Spacer(1, 0.85 * cm))
+    if LOGO_PATH.exists():
+        logo_h = 4.6 * cm
+        logo_w = logo_h * (595 / 700)
+        logo = Image(str(LOGO_PATH), width=logo_w, height=logo_h)
+        logo.hAlign = "CENTER"
+        st.append(logo)
+    else:
+        st.append(Paragraph("<i>[SGT logo — add assets/sgt-logo.png]</i>", S["center"]))
+    st.append(Spacer(1, 1.0 * cm))
+    submitted = Table(
+        [
+            [
+                Paragraph("<b>Submitted to:</b>", S["cell"]),
+                Paragraph("<b>Submitted by:</b>", S["cell"]),
+            ],
+            [
+                Paragraph(STUDENT["faculty"], S["cell"]),
+                Paragraph(STUDENT["name"], S["cell"]),
+            ],
+            [
+                Paragraph(STUDENT["faculty_title"], S["cell"]),
+                Paragraph(STUDENT["roll"], S["cell"]),
+            ],
+            [
+                Paragraph(STUDENT["faculty_dept"], S["cell"]),
+                Paragraph(STUDENT["programme"], S["cell"]),
+            ],
+            [Paragraph("", S["cell"]), Paragraph(STUDENT["section"], S["cell"])],
+            [Paragraph("", S["cell"]), Paragraph(STUDENT["semester"], S["cell"])],
+        ],
+        colWidths=[CONTENT_W * 0.48, CONTENT_W * 0.48],
+        hAlign="LEFT",
+    )
+    st.append(submitted)
+    st.append(Spacer(1, 1.4 * cm))
+    st.append(Paragraph(STUDENT["school"], S["center"]))
+    st.append(Paragraph(STUDENT["department"], S["center"]))
+    st.append(Paragraph(f"<b>{STUDENT['university']}</b>", S["center"]))
+    st.append(NextPageTemplate("content"))
+    st.append(PageBreak())
+    return st
+
+
+def contents_page() -> list:
+    items = [
+        "Abstract",
+        "1. Introduction",
+        "2. Background: What \u201cCompliance\u201d Means on a Public Ledger",
+        "3. Anatomy of Compliance Cost",
+        "4. Real-World Cases and Jurisdictions",
+        "5. Who Pays, Who Exits, and What Distorts",
+        "6. Policy Discussion",
+        "7. Recommendations",
+        "8. Conclusion",
+        "References",
+    ]
+    st = [
+        Paragraph('<font size="16" color="#14375E"><b>CONTENTS</b></font>', S["center"]),
+        Spacer(1, 0.6 * cm),
+    ]
+    for item in items:
+        st.append(Paragraph(item, S["toc"]))
+    st.append(PageBreak())
+    return st
